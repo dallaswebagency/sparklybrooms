@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sparkly Brooms | Cleaning, Organizing &amp; Everyday Help in Spruce Grove, Alberta</title>
+<meta name="description" content="Sparkly Brooms is a cleaning, organizing and everyday assistance service in Spruce Grove, Alberta, helping calm the chaos of everyday life across the Tri-County region.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Albert+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --velvet:#1d1219;      /* aubergine black, sits next to the logo plate */
+  --velvet-2:#2a1a24;
+  --rose:#e0857f;        /* rose-gold script in the logo */
+  --rose-deep:#b8524f;
+  --blush:#ffd6d2;       /* glitter highlight */
+  --lilac:#e6c7e1;       /* icon colour from the original site */
+  --mauve:#8a5a80;
+  --paper:#fdf7f5;
+  --ink:#2b1d26;
+  --muted:#6d5866;
+  --line:#ead9e3;
+  --serif:"Gilda Display", "Didot", "Bodoni MT", Georgia, serif;
+  --sans:"Albert Sans", "Helvetica Neue", Arial, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(90px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2.1rem,4.2vw,3.4rem)}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;gap:.6em;font:600 1rem/1 var(--sans);padding:1.05em 1.6em;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:transform .2s ease,background .2s ease,color .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-rose{background:var(--rose);color:var(--velvet)}
+.btn-rose:hover{background:var(--blush)}
+.btn-ghost{color:var(--blush);box-shadow:inset 0 0 0 1.5px rgba(255,214,210,.45)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--blush)}
+.btn-ink{background:var(--velvet);color:var(--blush)}
+.btn-ink:hover{background:var(--mauve)}
+.btn svg{width:18px;height:18px}
+
+/* ---------- top bar ---------- */
+.topbar{background:#000;color:#d9c6d2;font-size:.875rem}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:9px 0}
+.topbar a{text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+.topbar a:hover{color:var(--blush)}
+.topbar svg{width:15px;height:15px;color:var(--rose)}
+.topbar .left{display:flex;gap:26px}
+.topbar .social{display:flex;gap:14px}
+.topbar .social svg{width:17px;height:17px;color:#d9c6d2}
+
+/* ---------- header ---------- */
+header.site{position:sticky;top:0;z-index:40;background:var(--velvet);border-bottom:1px solid rgba(230,199,225,.12)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:41;background:var(--velvet)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:96px;transition:height .3s ease}
+header.site.small .wrap{height:68px}
+.logo img{height:82px;width:auto;mix-blend-mode:screen;transition:height .3s ease}
+header.site.small .logo img{height:62px}
+nav.main ul{list-style:none;display:flex;gap:6px;margin:0;padding:0}
+nav.main a{display:block;text-decoration:none;color:#ead6e2;font-weight:500;font-size:.98rem;padding:10px 14px;border-radius:999px;transition:background .2s,color .2s}
+nav.main a:hover,nav.main a[aria-current]{background:rgba(230,199,225,.1);color:var(--blush)}
+nav.main li{position:relative}
+nav.main .sub{position:absolute;top:100%;left:0;min-width:210px;background:var(--velvet-2);border:1px solid rgba(230,199,225,.15);border-radius:14px;padding:8px;display:none;flex-direction:column;gap:0}
+nav.main li:hover .sub,nav.main li:focus-within .sub{display:flex}
+.head-cta{display:flex;align-items:center;gap:18px}
+.head-phone{color:var(--blush);text-decoration:none;font-weight:600;white-space:nowrap}
+.head-phone small{display:block;font-weight:400;color:#bfa5b6;font-size:.75rem}
+.burger{display:none;background:none;border:0;color:var(--blush);padding:8px;cursor:pointer}
+.burger svg{width:28px;height:28px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--velvet);color:#f4e6ee;overflow:hidden;padding:72px 0 150px}
+.hero::after{content:"";position:absolute;right:-12%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(224,133,127,.18),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.7rem,5.6vw,5.1rem);color:var(--blush)}
+.calm{display:block;width:min(440px,90%);height:auto;margin:14px 0 26px;overflow:visible}
+.calm .chaos{fill:none;stroke:var(--lilac);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 1.6s .3s ease-out forwards,fadeOut .6s 2.1s ease forwards}
+.calm .sweep{fill:none;stroke:var(--rose);stroke-width:4;stroke-linecap:round;stroke-dasharray:520;stroke-dashoffset:520;animation:draw 1s 2.3s cubic-bezier(.6,0,.2,1) forwards}
+.calm .spark{transform-box:fill-box;transform-origin:center;opacity:0;animation:pop .7s ease-out forwards}
+.calm .spark:nth-of-type(1){animation-delay:3.1s}.calm .spark:nth-of-type(2){animation-delay:3.25s}.calm .spark:nth-of-type(3){animation-delay:3.4s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadeOut{to{opacity:0}}
+@keyframes pop{0%{opacity:0;transform:scale(0) rotate(-40deg)}60%{opacity:1;transform:scale(1.3) rotate(10deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+.hero .lede{font-size:1.18rem;color:#dccbd5;max-width:34em}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.fb-proof{display:flex;align-items:center;gap:14px;margin-top:36px;color:#cdb7c5;font-size:.95rem;text-decoration:none}
+.fb-proof .stars{color:var(--rose);letter-spacing:2px;font-size:1.1rem}
+.fb-proof strong{color:var(--blush);font-weight:600}
+.fb-proof:hover strong{text-decoration:underline}
+
+.arch{position:relative;justify-self:end;width:min(440px,100%)}
+.arch .frame{border-radius:999px 999px 28px 28px;overflow:hidden;aspect-ratio:4/5;position:relative;z-index:2;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.arch .frame img{width:100%;height:100%;object-fit:cover}
+.arch .outline{position:absolute;inset:-18px 18px 18px -18px;border:1.5px solid rgba(224,133,127,.55);border-radius:999px 999px 32px 32px;z-index:1}
+.arch .tag{position:absolute;z-index:3;left:-38px;bottom:56px;background:var(--paper);color:var(--ink);border-radius:18px;padding:14px 18px;display:flex;gap:12px;align-items:center;box-shadow:0 18px 40px -16px rgba(0,0,0,.5);max-width:250px}
+.arch .tag svg{width:34px;height:34px;color:var(--mauve);flex:none}
+.arch .tag b{display:block;font-family:var(--serif);font-weight:400;font-size:1.2rem;line-height:1.1}
+.arch .tag span{font-size:.85rem;color:var(--muted)}
+
+.twinkle{position:absolute;z-index:1;color:var(--blush);animation:tw 3.4s ease-in-out infinite;opacity:.0}
+.twinkle svg{width:100%;height:100%}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.4) rotate(0)}45%{opacity:.9;transform:scale(1) rotate(45deg)}70%{opacity:.2}}
+
+/* ---------- quote bar ---------- */
+.quote-bar{position:relative;z-index:5;margin-top:-92px}
+.quote-bar form{background:#fff;border-radius:26px;box-shadow:0 30px 70px -30px rgba(43,29,38,.45);padding:26px 28px 24px;display:grid;grid-template-columns:repeat(4,1fr) auto;gap:14px;align-items:end}
+.quote-bar .intro{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:4px}
+.quote-bar .intro h2{font-size:1.75rem}
+.quote-bar .intro p{color:var(--muted);font-size:.95rem}
+label.f{display:flex;flex-direction:column;gap:6px;font-size:.82rem;font-weight:600;color:var(--muted)}
+label.f input,label.f select{font:500 1rem var(--sans);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:13px 14px;width:100%;appearance:none;transition:border-color .2s}
+label.f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%238a5a80' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+label.f input:focus,label.f select:focus{outline:none;border-color:var(--rose)}
+.quote-bar .btn{height:50px}
+.form-note{grid-column:1/-1;font-size:.85rem;color:var(--muted);min-height:1.2em}
+
+/* ---------- ribbon ---------- */
+.ribbon{margin:70px 0 0;background:var(--lilac);transform:rotate(-1.6deg);padding:16px 0;overflow:hidden;white-space:nowrap}
+.ribbon .track{display:inline-flex;gap:0;animation:slide 38s linear infinite}
+.ribbon span{display:inline-flex;align-items:center;gap:22px;padding-right:22px;font-family:var(--serif);font-size:1.45rem;color:var(--velvet)}
+.ribbon span svg{width:18px;height:18px;color:var(--mauve)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- about ---------- */
+.about{padding:120px 0 110px}
+.about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+.about .pics{position:relative;padding-bottom:60px}
+.about .pics .main{border-radius:200px 200px 22px 22px;overflow:hidden;aspect-ratio:3/4;width:78%}
+.about .pics .main img{width:100%;height:100%;object-fit:cover}
+.about .pics .flag{position:absolute;right:0;bottom:0;width:46%;background:#fff;padding:14px;border-radius:20px;box-shadow:0 22px 50px -24px rgba(43,29,38,.5);transform:rotate(3deg)}
+.about .pics .flag img{border-radius:10px;width:100%}
+.about .pics .flag p{font-size:.85rem;color:var(--muted);margin-top:10px;text-align:center}
+.about h2{margin-bottom:26px}
+.about p.body{color:var(--muted);font-size:1.12rem;max-width:36em;margin-bottom:30px;line-height:1.7}
+.about .facts{display:grid;grid-template-columns:1fr 1fr;gap:18px 32px;margin:0 0 36px;padding:28px 0 0;border-top:1px solid var(--line)}
+.about .facts div{display:flex;gap:14px;align-items:flex-start}
+.about .facts svg{flex:none;width:36px;height:36px;color:var(--mauve)}
+.about .facts b{display:block;font-weight:600}
+.about .facts span{font-size:.93rem;color:var(--muted)}
+.textlink{font-weight:600;color:var(--rose-deep);text-decoration-thickness:1.5px;text-underline-offset:5px}
+
+/* ---------- services ---------- */
+.services{background:var(--velvet);color:#f1e2ea;padding:110px 0 120px;position:relative;overflow:hidden}
+.services .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:54px;flex-wrap:wrap}
+.services .head h2{color:var(--blush);max-width:12em}
+.services .head p{color:#cbb5c3;max-width:30em}
+.svc{display:grid;grid-template-columns:.95fr 1.05fr;gap:60px;align-items:stretch}
+.svc-list{display:flex;flex-direction:column;border-top:1px solid rgba(230,199,225,.16)}
+.svc-tab{all:unset;cursor:pointer;display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 20px;padding:28px 6px;border-bottom:1px solid rgba(230,199,225,.16);transition:padding .35s ease}
+.svc-tab .name{font-family:var(--serif);font-size:clamp(2.3rem,4.6vw,3.8rem);line-height:1;color:#8f7487;transition:color .3s ease}
+.svc-tab .ico{width:46px;height:46px;color:#8f7487;transition:color .3s,transform .4s}
+.svc-tab .desc{grid-column:1/-1;color:#d6c3cf;max-width:30em;max-height:0;overflow:hidden;opacity:0;transition:max-height .45s ease,opacity .35s ease,margin .35s}
+.svc-tab[aria-selected="true"] .name,.svc-tab:hover .name{color:var(--blush)}
+.svc-tab[aria-selected="true"] .ico{color:var(--rose);transform:rotate(-8deg) scale(1.08)}
+.svc-tab[aria-selected="true"] .desc{max-height:220px;opacity:1;margin-top:10px}
+.svc-tab:focus-visible{outline:2px solid var(--rose);outline-offset:4px}
+.svc-view{position:relative;border-radius:30px;overflow:hidden;min-height:520px;background:var(--velvet-2)}
+.svc-pane{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;display:flex;flex-direction:column;justify-content:flex-end}
+.svc-pane.on{opacity:1}
+.svc-pane .ph{position:absolute;inset:0;background:linear-gradient(150deg,#3a2433,#1d1219 70%);display:grid;place-items:center}
+.svc-pane .ph svg{width:38%;height:auto;color:rgba(230,199,225,.22)}
+.svc-pane img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 6s ease}
+.svc-pane.on img{transform:scale(1)}
+.svc-pane .cap{position:relative;margin:22px;background:rgba(29,18,25,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:20px;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.svc-pane .cap ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.svc-pane .cap li{font-size:.88rem;padding:6px 12px;border-radius:999px;background:rgba(230,199,225,.12);color:#f1dfe9}
+
+/* ---------- why choose us ---------- */
+.why{padding:120px 0;background:linear-gradient(180deg,var(--paper),#f6eaf1)}
+.why .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
+.why .side{position:sticky;top:120px}
+.why .side h2{margin-bottom:22px}
+.why .side p{color:var(--muted);font-size:1.1rem;margin-bottom:34px;max-width:28em}
+.fb-card{display:flex;gap:18px;align-items:center;background:#fff;border-radius:22px;padding:20px 22px;box-shadow:0 18px 40px -26px rgba(43,29,38,.45);text-decoration:none;max-width:420px}
+.fb-card .fb{flex:none;width:52px;height:52px;border-radius:14px;background:#1877f2;display:grid;place-items:center}
+.fb-card .fb svg{width:26px;height:26px;color:#fff}
+.fb-card .stars{color:var(--rose);letter-spacing:2px}
+.fb-card b{font-family:var(--serif);font-weight:400;font-size:1.3rem;display:block;line-height:1.1}
+.fb-card span{font-size:.9rem;color:var(--muted)}
+.pet{margin-top:26px;border-radius:24px;overflow:hidden;aspect-ratio:4/3;max-width:420px;position:relative;background:linear-gradient(140deg,var(--lilac),var(--blush))}
+.pet .ph{position:absolute;inset:0;display:grid;place-items:center;color:rgba(138,90,128,.4)}
+.pet .ph svg{width:30%}
+.pet img{position:relative;width:100%;height:100%;object-fit:cover}
+
+.clipboard{position:relative;background:#c9a27e;background-image:linear-gradient(135deg,#d3ad89,#b98d68);border-radius:28px;padding:54px 26px 26px;transform:rotate(1.2deg);box-shadow:0 40px 70px -40px rgba(43,29,38,.6)}
+.clipboard .clip{position:absolute;top:-26px;left:50%;transform:translateX(-50%);width:170px;height:62px}
+.sheet{background:#fff;border-radius:10px;padding:34px 40px 40px;border-top:6px solid var(--lilac)}
+.sheet h3{font-size:1.6rem;margin-bottom:10px;color:var(--mauve)}
+.sheet ol{list-style:none;margin:0;padding:0}
+.sheet li{display:grid;grid-template-columns:40px 1fr;gap:16px;padding:18px 0;border-bottom:1px dashed var(--line)}
+.sheet li:last-child{border-bottom:0}
+.box{width:32px;height:32px;border:2px solid var(--lilac);border-radius:8px;position:relative;margin-top:2px}
+.box svg{position:absolute;inset:-6px -4px -4px -2px;width:42px;height:42px;overflow:visible}
+.box path{fill:none;stroke:var(--rose-deep);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;transition:stroke-dashoffset .5s cubic-bezier(.6,0,.2,1)}
+.sheet li.done .box path{stroke-dashoffset:0}
+.sheet li b{display:block;font-weight:600;font-size:1.08rem;margin-bottom:4px}
+.sheet li p{color:var(--muted);font-size:.98rem}
+
+/* ---------- testimonials ---------- */
+.reviews{background:var(--velvet);color:#f2e3eb;padding:110px 0;position:relative;overflow:hidden}
+.reviews .wrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;align-items:start}
+.reviews h2{color:var(--blush);margin-bottom:22px}
+.reviews .side p{color:#cbb5c3;margin-bottom:34px;max-width:26em}
+.people{display:flex;flex-direction:column;gap:10px}
+.person{all:unset;cursor:pointer;display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:16px;transition:background .25s}
+.person .av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:rgba(230,199,225,.12);color:var(--lilac);transition:background .25s,color .25s}
+.person span{font-weight:500;color:#cdb7c5}
+.person[aria-selected="true"]{background:rgba(230,199,225,.08)}
+.person[aria-selected="true"] .av{background:var(--rose);color:var(--velvet)}
+.person[aria-selected="true"] span{color:var(--blush)}
+.person:focus-visible{outline:2px solid var(--rose)}
+.quotes{position:relative;min-height:380px}
+.quotes .mark{font-family:var(--serif);font-size:11rem;line-height:.7;color:var(--rose);opacity:.35;height:80px}
+.q{position:absolute;top:90px;left:0;right:0;opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;pointer-events:none}
+.q.on{opacity:1;transform:none;pointer-events:auto}
+.q blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.45rem,2.5vw,2.05rem);line-height:1.35;color:#f8ecf2}
+.q cite{display:block;margin-top:26px;font-style:normal;color:var(--rose);font-weight:600}
+.q .stars{color:var(--rose);letter-spacing:3px;margin-bottom:18px}
+
+/* ---------- areas ---------- */
+.areas{padding:120px 0 110px}
+.areas .head{text-align:center;max-width:640px;margin:0 auto 60px}
+.areas .head h2{margin-bottom:16px}
+.areas .head p{color:var(--muted)}
+.route{position:relative;max-width:1080px;margin:0 auto}
+.route svg.path{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.route svg.path path{fill:none;stroke:var(--lilac);stroke-width:3;stroke-dasharray:2 12;stroke-linecap:round}
+.stops{position:relative;display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:start}
+.stop{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+.stop:nth-child(even){margin-top:90px}
+.pin{width:54px;height:54px;color:var(--mauve);transition:transform .3s}
+.stop:first-child .pin{color:var(--rose-deep);width:66px;height:66px}
+.stop:hover .pin{transform:translateY(-6px)}
+.stop b{font-family:var(--serif);font-weight:400;font-size:1.22rem;line-height:1.15}
+.stop small{color:var(--muted);font-size:.85rem}
+
+/* ---------- CTA ---------- */
+.cta{padding:0 0 110px}
+.cta .box2{position:relative;overflow:hidden;border-radius:36px;background:var(--rose);color:var(--velvet);padding:70px 60px;display:grid;grid-template-columns:1.3fr auto;gap:40px;align-items:center}
+.cta .box2::before{content:"";position:absolute;right:-140px;top:-160px;width:460px;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,214,210,.85),rgba(255,214,210,0))}
+.cta h2{position:relative;font-size:clamp(2rem,4vw,3.2rem)}
+.cta h2 a{text-decoration:none;white-space:nowrap}
+.cta .acts{position:relative;display:flex;gap:14px;flex-wrap:wrap}
+.cta .btn-line{box-shadow:inset 0 0 0 1.5px var(--velvet);color:var(--velvet)}
+.cta .btn-line:hover{background:var(--velvet);color:var(--blush)}
+
+/* ---------- footer ---------- */
+footer{background:#000;color:#cbb5c3;padding:80px 0 0}
+footer .top{display:grid;grid-template-columns:1.2fr .8fr .8fr 1fr;gap:50px;padding-bottom:60px}
+footer .brand img{height:110px;width:auto;mix-blend-mode:screen;margin-bottom:18px}
+footer .brand p{max-width:24em;font-size:.95rem}
+footer h3{font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--blush);margin-bottom:18px}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--blush)}
+footer .soc{display:flex;gap:12px;margin-top:22px}
+footer .soc a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(230,199,225,.25)}
+footer .soc a:hover{background:var(--rose);color:#000}
+footer .soc svg{width:18px;height:18px}
+footer .bottom{border-top:1px solid rgba(230,199,225,.14);padding:22px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.9rem}
+footer .bottom a{color:var(--rose)}
+
+/* ---------- mobile drawer ---------- */
+.drawer{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .3s}
+.drawer.open{opacity:1;pointer-events:auto}
+.drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(340px,86%);background:var(--velvet);padding:calc(24px + env(safe-area-inset-top,0px)) 26px 30px;transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column;gap:6px;overflow:auto}
+.drawer.open .panel{transform:none}
+.drawer a{color:#ecd9e4;text-decoration:none;font-size:1.15rem;padding:10px 0}
+.drawer a.sub{font-size:1rem;color:#bda4b4;padding:6px 0 6px 16px}
+.drawer .close{align-self:flex-end;background:none;border:0;color:var(--blush);font-size:2rem;cursor:pointer;line-height:1}
+
+/* ---------- reveal (one orchestrated entrance per section headline) ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:1060px){
+  nav.main,.head-phone{display:none}
+  .burger{display:block}
+  .hero .wrap{grid-template-columns:1fr;gap:50px}
+  .arch{justify-self:center}
+  .quote-bar form{grid-template-columns:1fr 1fr}
+  .quote-bar .btn{grid-column:1/-1;justify-content:center}
+  .about .wrap,.why .wrap,.reviews .wrap,.svc{grid-template-columns:1fr;gap:50px}
+  .why .side{position:static}
+  footer .top{grid-template-columns:1fr 1fr}
+  .stops{grid-template-columns:repeat(4,1fr);row-gap:30px}
+  .stop:nth-child(even){margin-top:50px}
+  .route svg.path{display:none}
+  .cta .box2{grid-template-columns:1fr;padding:50px 34px}
+}
+@media (max-width:640px){
+  .topbar .left a:last-child{display:none}
+  .head-cta .btn{display:none}
+  .hero{padding:48px 0 130px}
+  .arch .tag{left:-6px;bottom:24px}
+  .quote-bar form{grid-template-columns:1fr;padding:22px}
+  .about{padding:80px 0}
+  .about .facts{grid-template-columns:1fr}
+  .services,.why,.reviews,.areas{padding:80px 0}
+  .svc-view{min-height:400px}
+  .sheet{padding:26px 20px 26px}
+  .clipboard{padding:46px 14px 14px;transform:none}
+  .quotes{min-height:460px}
+  .stops{grid-template-columns:1fr 1fr}
+  .stop:nth-child(even){margin-top:0}
+  footer .top{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .calm .chaos{display:none}.calm .sweep{stroke-dashoffset:0}.calm .spark{opacity:1}
+  .reveal{opacity:1;transform:none}
+  .box path{stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sparkle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.4 2.6 9.6 12 12-9.4 2.4-11.4 5.6-12 12-.6-6.4-2.6-9.6-12-12 9.4-2.4 11.4-5.6 12-12z"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 3h3.5l1.7 4.5-2.2 1.4a11 11 0 0 0 6.1 6.1l1.4-2.2L20 14.5V18a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></g></symbol>
+  <symbol id="fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></symbol>
+  <symbol id="ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></g></symbol>
+  <symbol id="pin" viewBox="0 0 48 48"><path fill="currentColor" d="M24 3C15.7 3 9 9.6 9 17.8 9 29 24 45 24 45s15-16 15-27.2C39 9.6 32.3 3 24 3z"/><circle cx="24" cy="18" r="6" fill="#fdf7f5"/></symbol>
+  <symbol id="broom" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M52 6 34 30"/><path d="M28 27l10 8-4 5c-3 4-9 6-14 4l-12 14c-2-5-1-12 3-17l9-11 8-3z"/><path d="M15 40l7 6M19 35l9 7"/></g></symbol>
+  <symbol id="boxes" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><rect x="8" y="30" width="22" height="22" rx="2"/><rect x="34" y="30" width="22" height="22" rx="2"/><rect x="21" y="8" width="22" height="22" rx="2"/><path d="M15 36h8M41 36h8M28 14h8"/></g></symbol>
+  <symbol id="heart" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 40h10l8 4h12a3 3 0 0 0 0-6H30"/><path d="M20 52h22l14-10a3 3 0 0 0-4-5l-10 6"/><path d="M38 28s-12-7-12-15a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 8-12 15-12 15z"/></g></symbol>
+  <symbol id="shield" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M24 4 8 10v12c0 10 7 18 16 22 9-4 16-12 16-22V10z"/><path d="m17 24 5 5 10-11"/></g></symbol>
+  <symbol id="paw" viewBox="0 0 48 48"><g fill="currentColor"><ellipse cx="13" cy="20" rx="4.5" ry="6"/><ellipse cx="35" cy="20" rx="4.5" ry="6"/><ellipse cx="20" cy="10" rx="4.5" ry="6"/><ellipse cx="28" cy="10" rx="4.5" ry="6"/><path d="M24 24c-6 0-12 8-12 13 0 4 3 6 6 5s4-2 6-2 3 1 6 2 6-1 6-5c0-5-6-13-12-13z"/></g></symbol>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="left">
+      <a href="tel:7805450089"><svg><use href="#phone"/></svg>780-545-0089</a>
+      <a href="mailto:sparklybrooms@hotmail.com?subject=Request%20for%20Quote"><svg><use href="#mail"/></svg>sparklybrooms@hotmail.com</a>
+    </div>
+    <div class="social">
+      <a href="https://www.instagram.com/sparklybrooms22" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ig"/></svg></a>
+      <a href="https://www.facebook.com/sparklybrooms" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#fb"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<header class="site" id="top">
+  <div class="wrap">
+    <a class="logo" href="https://www.sparklybrooms.com" aria-label="Sparkly Brooms home"><img src="images/logo.png" alt="Sparkly Brooms, cleaning, organizing, life"></a>
+    <nav class="main" aria-label="Main">
+      <ul>
+        <li><a href="https://www.sparklybrooms.com" aria-current="page">Home</a></li>
+        <li><a href="https://www.sparklybrooms.com/about">About Us</a>
+          <div class="sub"><a href="https://www.sparklybrooms.com/team-3">Our Team</a></div></li>
+        <li><a href="https://www.sparklybrooms.com/services">Our Services</a>
+          <div class="sub"><a href="https://www.sparklybrooms.com/cleaning">Cleaning Services</a><a href="https://www.sparklybrooms.com/organizing">Organizing</a><a href="https://www.sparklybrooms.com/life">Life</a></div></li>
+        <li><a href="https://www.sparklybrooms.com/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="head-cta">
+      <a class="head-phone" href="tel:7805450089"><small>Call or text</small>780-545-0089</a>
+      <a class="btn btn-rose" href="#quote">Get a quote</a>
+      <button class="burger" aria-label="Open menu" aria-expanded="false" id="burger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M9 17h11"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="panel" role="dialog" aria-label="Menu">
+    <button class="close" id="close" aria-label="Close menu">&times;</button>
+    <a href="https://www.sparklybrooms.com">Home</a>
+    <a href="https://www.sparklybrooms.com/about">About Us</a>
+    <a class="sub" href="https://www.sparklybrooms.com/team-3">Our Team</a>
+    <a href="https://www.sparklybrooms.com/services">Our Services</a>
+    <a class="sub" href="https://www.sparklybrooms.com/cleaning">Cleaning Services</a>
+    <a class="sub" href="https://www.sparklybrooms.com/organizing">Organizing</a>
+    <a class="sub" href="https://www.sparklybrooms.com/life">Life</a>
+    <a href="https://www.sparklybrooms.com/contact">Contact</a>
+    <a class="btn btn-rose" style="margin-top:20px;justify-content:center" href="tel:7805450089">Call 780-545-0089</a>
+  </div>
+</div>
+
+<main>
+<section class="hero">
+  <span class="twinkle" style="left:6%;top:14%;width:16px;height:16px;animation-delay:.4s"><svg><use href="#sparkle"/></svg></span>
+  <span class="twinkle" style="left:46%;top:9%;width:10px;height:10px;animation-delay:1.6s"><svg><use href="#sparkle"/></svg></span>
+  <span class="twinkle" style="left:54%;top:72%;width:20px;height:20px;animation-delay:2.4s"><svg><use href="#sparkle"/></svg></span>
+  <span class="twinkle" style="left:92%;top:18%;width:14px;height:14px;animation-delay:1s"><svg><use href="#sparkle"/></svg></span>
+  <span class="twinkle" style="left:30%;top:86%;width:12px;height:12px;animation-delay:3s"><svg><use href="#sparkle"/></svg></span>
+  <div class="wrap">
+    <div>
+      <h1>Helping calm the chaos of everyday life.</h1>
+      <svg class="calm" viewBox="0 0 440 70" aria-hidden="true">
+        <path class="chaos" d="M6 44c18-30 30 22 46-4s-6-30 14-18 10 32 28 14-10-26 12-24 4 30 26 18 6-26 24-16 0 26 22 16 2-24 22-12 6 22 24 10-4-20 18-14 2 22 24 8 6-14 22-6 4 18 26 6 10-12 30-4"/>
+        <path class="sweep" d="M8 52C110 64 230 60 330 38c30-7 55-14 90-28"/>
+        <use class="spark" href="#sparkle" x="404" y="0" width="22" height="22" style="color:var(--blush)"/>
+        <use class="spark" href="#sparkle" x="424" y="18" width="12" height="12" style="color:var(--rose)"/>
+        <use class="spark" href="#sparkle" x="388" y="22" width="9" height="9" style="color:var(--lilac)"/>
+      </svg>
+      <p class="lede">Cleaning, organizing and everyday assistance from Spruce Grove, Alberta. From a spotless kitchen to picking up items, driving to appointments, getting the kids from school and preparing meals.</p>
+      <div class="actions">
+        <a class="btn btn-rose" href="#quote">Get a free estimate</a>
+        <a class="btn btn-ghost" href="tel:7805450089"><svg><use href="#phone"/></svg>Call or text 780-545-0089</a>
+      </div>
+      <a class="fb-proof" href="https://www.facebook.com/sparklybrooms" target="_blank" rel="noopener">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span><strong>5 stars on Facebook.</strong> See what clients are saying.</span>
+      </a>
+    </div>
+    <div class="arch">
+      <div class="outline" aria-hidden="true"></div>
+      <div class="frame"><img src="images/team-kitchen.jpg" alt="A Sparkly Brooms cleaner wiping down a kitchen island with her caddy of supplies"></div>
+      <div class="tag">
+        <svg><use href="#shield"/></svg>
+        <div><b>Licensed &amp; insured</b><span>$2M liability, bonded, WCB Alberta</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap quote-bar" id="quote">
+  <form id="quoteForm" novalidate>
+    <div class="intro">
+      <h2>Request a free estimate</h2>
+      <p>We’ll reply by phone or email with your quote.</p>
+    </div>
+    <label class="f">Your name<input name="name" autocomplete="name" required></label>
+    <label class="f">Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+    <label class="f">Service
+      <select name="service">
+        <option>Cleaning</option><option>Organizing</option><option>Life (personal errands)</option>
+      </select></label>
+    <label class="f">Area
+      <select name="area">
+        <option>Spruce Grove</option><option>Stony Plain</option><option>Parkland County</option><option>Spring Lake</option><option>Seba Beach</option><option>Onoway</option><option>Calahoo</option><option>Alberta Beach</option><option>Devon</option><option>St. Albert</option><option>Edmonton</option>
+      </select></label>
+    <button class="btn btn-ink" type="submit">Get my quote</button>
+    <p class="form-note" id="formNote" aria-live="polite"></p>
+  </form>
+</div>
+
+<div class="ribbon" aria-hidden="true">
+  <div class="track">
+    <span>Fully licensed and insured<svg><use href="#sparkle"/></svg>$2M general liability<svg><use href="#sparkle"/></svg>Fidelity bonded<svg><use href="#sparkle"/></svg>Covered by WCB Alberta<svg><use href="#sparkle"/></svg>Pet friendly<svg><use href="#sparkle"/></svg>Senior discounts<svg><use href="#sparkle"/></svg>Satisfaction guarantee<svg><use href="#sparkle"/></svg></span>
+    <span>Fully licensed and insured<svg><use href="#sparkle"/></svg>$2M general liability<svg><use href="#sparkle"/></svg>Fidelity bonded<svg><use href="#sparkle"/></svg>Covered by WCB Alberta<svg><use href="#sparkle"/></svg>Pet friendly<svg><use href="#sparkle"/></svg>Senior discounts<svg><use href="#sparkle"/></svg>Satisfaction guarantee<svg><use href="#sparkle"/></svg></span>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="pics">
+      <div class="main"><img src="images/spruce-grove.jpg" alt="The historic grain elevator in Spruce Grove, Alberta" loading="lazy"></div>
+      <div class="flag"><img src="images/alberta-flag.png" alt="Flag of Alberta" loading="lazy"><p>Proudly Albertan</p></div>
+    </div>
+    <div class="reveal">
+      <h2>Spruce Grove is our home and you are our family.</h2>
+      <p class="body">Sparkly Brooms is based out of Spruce Grove, Alberta. We provide jobs for locals, which allows us to invest back into our community. We strive to bring the most meticulous, efficient and honest service to your homes and businesses in the Tri-County region.</p>
+      <div class="facts">
+        <div><svg><use href="#shield"/></svg><p><b>Bonded and insured</b><span>$2M general liability with a Fidelity bond through Go-Insurance.</span></p></div>
+        <div><svg><use href="#paw"/></svg><p><b>Pet friendly</b><span>Pets are family. We offer pet friendly products too.</span></p></div>
+      </div>
+      <a class="textlink" href="https://www.sparklybrooms.com/about">Read more about us</a>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Welcome to our services</h2>
+      <p>Cleaning, organizing and a helping hand with the rest of life. Pick one, or let us take care of all three.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-list" role="tablist" aria-label="Our services">
+        <button class="svc-tab" role="tab" aria-selected="true" aria-controls="pane-cleaning" id="tab-cleaning">
+          <span class="name">Cleaning</span><svg class="ico"><use href="#broom"/></svg>
+          <span class="desc">Services for all of your cleaning needs. From everyday cleaning, moving in/out cleans, commercial and events.</span>
+        </button>
+        <button class="svc-tab" role="tab" aria-selected="false" aria-controls="pane-organizing" id="tab-organizing">
+          <span class="name">Organizing</span><svg class="ico"><use href="#boxes"/></svg>
+          <span class="desc">Sometimes no matter how much you clean, your house still looks untidy. From your bedroom closet to the messy kitchen pantry, we’ve got you covered.</span>
+        </button>
+        <button class="svc-tab" role="tab" aria-selected="false" aria-controls="pane-life" id="tab-life">
+          <span class="name">Life</span><svg class="ico"><use href="#heart"/></svg>
+          <span class="desc">Consider us your personal assistants. From running errands to checking in on your home, we can help.</span>
+        </button>
+      </div>
+      <div class="svc-view">
+        <div class="svc-pane on" id="pane-cleaning" role="tabpanel" aria-labelledby="tab-cleaning">
+          <div class="ph"><svg><use href="#broom"/></svg></div>
+          <img src="images/service-cleaning.jpg" alt="A freshly cleaned, bright kitchen" loading="lazy" onerror="this.remove()">
+          <div class="cap"><ul><li>Everyday cleaning</li><li>Move in / move out</li><li>Commercial</li><li>Events</li></ul><a class="btn btn-rose" href="https://www.sparklybrooms.com/cleaning">Cleaning services</a></div>
+        </div>
+        <div class="svc-pane" id="pane-organizing" role="tabpanel" aria-labelledby="tab-organizing">
+          <div class="ph"><svg><use href="#boxes"/></svg></div>
+          <img src="images/service-organizing.jpg" alt="A neatly organized pantry with labelled jars" loading="lazy" onerror="this.remove()">
+          <div class="cap"><ul><li>Bedroom closets</li><li>Kitchen pantries</li><li>Whole-home tidy</li></ul><a class="btn btn-rose" href="https://www.sparklybrooms.com/organizing">Organizing</a></div>
+        </div>
+        <div class="svc-pane" id="pane-life" role="tabpanel" aria-labelledby="tab-life">
+          <div class="ph"><svg><use href="#heart"/></svg></div>
+          <img src="images/service-life.jpg" alt="A helper carrying grocery bags to a front door" loading="lazy" onerror="this.remove()">
+          <div class="cap"><ul><li>Picking up items</li><li>Rides to appointments</li><li>School pick-ups</li><li>Meal prep</li></ul><a class="btn btn-rose" href="https://www.sparklybrooms.com/life">Life services</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="side reveal">
+      <h2>Why choose us?</h2>
+      <p>While we offer a standard cleaning list, you’re welcome to make your own. Here’s ours.</p>
+      <a class="fb-card" href="https://www.facebook.com/sparklybrooms" target="_blank" rel="noopener">
+        <span class="fb"><svg><use href="#fb"/></svg></span>
+        <span><span class="stars">★★★★★</span><b>5 stars on Facebook</b><span>People are talking about Sparkly Brooms making waves in the cleaning industry.</span></span>
+      </a>
+      <div class="pet">
+        <div class="ph"><svg><use href="#paw"/></svg></div>
+        <img src="images/pet-friendly.jpg" alt="A happy dog relaxing on a freshly cleaned floor" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+    <div class="clipboard">
+      <svg class="clip" viewBox="0 0 170 62" aria-hidden="true"><rect x="20" y="16" width="130" height="46" rx="10" fill="#cfc6cc"/><rect x="20" y="16" width="130" height="10" rx="5" fill="#e9e3e7"/><circle cx="85" cy="14" r="13" fill="none" stroke="#cfc6cc" stroke-width="7"/></svg>
+      <div class="sheet">
+        <h3>Our standard list</h3>
+        <ol id="checklist">
+          <li><span class="box"><svg viewBox="0 0 42 42"><path d="M8 22l9 9L36 6"/></svg></span><div><b>Fully licensed and insured</b><p>A business license for the Tri-County region, plus $2M general liability insurance with a Fidelity bond through Go-Insurance.</p></div></li>
+          <li><span class="box"><svg viewBox="0 0 42 42"><path d="M8 22l9 9L36 6"/></svg></span><div><b>Trained cleaning professionals</b><p>Every team member has a negative background check and goes through a training process before doing a job alone.</p></div></li>
+          <li><span class="box"><svg viewBox="0 0 42 42"><path d="M8 22l9 9L36 6"/></svg></span><div><b>Covered by WCB Alberta</b><p>All of our employees are covered by the Workers’ Compensation Board of Alberta.</p></div></li>
+          <li><span class="box"><svg viewBox="0 0 42 42"><path d="M8 22l9 9L36 6"/></svg></span><div><b>Pet friendly</b><p>We know pets are family and we love our furry friends. We offer pet friendly products as well.</p></div></li>
+          <li><span class="box"><svg viewBox="0 0 42 42"><path d="M8 22l9 9L36 6"/></svg></span><div><b>Discounts available</b><p>Initial client, emergency service and senior discounts.</p></div></li>
+          <li><span class="box"><svg viewBox="0 0 42 42"><path d="M8 22l9 9L36 6"/></svg></span><div><b>Customization allowed</b><p>Not every space fits in the perfect box. Make your own list so you get exactly what you want.</p></div></li>
+          <li><span class="box"><svg viewBox="0 0 42 42"><path d="M8 22l9 9L36 6"/></svg></span><div><b>Satisfaction guarantee</b><p>We’re human. If we miss something, get back to us within 24 hours and we’ll make it right.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="side reveal">
+      <h2>Our reviews speak for themselves</h2>
+      <p>We invite you to check out our Facebook page to see what clients are saying.</p>
+      <div class="people" role="tablist" aria-label="Client reviews">
+        <button class="person" role="tab" aria-selected="true" data-i="0"><span class="av">JM</span><span>Jade McLean</span></button>
+        <button class="person" role="tab" aria-selected="false" data-i="1"><span class="av">LB</span><span>Lindsay Brennan</span></button>
+        <button class="person" role="tab" aria-selected="false" data-i="2"><span class="av">DT</span><span>Dana Tate</span></button>
+      </div>
+    </div>
+    <div class="quotes" aria-live="polite">
+      <div class="mark" aria-hidden="true">“</div>
+      <figure class="q on" style="margin:0"><div class="stars">★★★★★</div><blockquote>We just had our first house clean by Sparkly Brooms and will be repeat customers! We’ve never had a proper clean of our house since moving in 4 years ago and the difference is amazing! Our house is so amazingly clean floor to ceiling.</blockquote><cite>Jade McLean</cite></figure>
+      <figure class="q" style="margin:0"><div class="stars">★★★★★</div><blockquote>The team was courteous, professional and thorough with their work. They paid attention to every detail and made sure to leave my home spotless. I would highly recommend Sparkly Brooms to anyone in need of professional cleaning.</blockquote><cite>Lindsay Brennan</cite></figure>
+      <figure class="q" style="margin:0"><div class="stars">★★★★★</div><blockquote>Sparkly Brooms was able to schedule in my parent’s fall clean quickly. Their rates were very reasonable, and they made efficient use of their time. They oiled the cupboards and thoroughly cleaned the interior of appliances. Highly recommend.</blockquote><cite>Dana Tate</cite></figure>
+    </div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="head reveal">
+    <h2>Areas we serve</h2>
+    <p>Starting from home in Spruce Grove and travelling across the Tri-County region.</p>
+  </div>
+  <div class="wrap route">
+    <svg class="path" viewBox="0 0 1080 200" preserveAspectRatio="none" aria-hidden="true"><path d="M77 30C150 30 160 120 231 120S310 30 385 30s80 90 154 90 80-90 154-90 80 90 154 90 80-90 154-90"/></svg>
+    <div class="stops">
+      <div class="stop"><svg class="pin"><use href="#pin"/></svg><b>Spruce Grove &amp; Stony Plain</b><small>Home base</small></div>
+      <div class="stop"><svg class="pin"><use href="#pin"/></svg><b>Parkland County</b></div>
+      <div class="stop"><svg class="pin"><use href="#pin"/></svg><b>Spring Lake &amp; Seba Beach</b></div>
+      <div class="stop"><svg class="pin"><use href="#pin"/></svg><b>Onoway, Calahoo, Alberta Beach</b></div>
+      <div class="stop"><svg class="pin"><use href="#pin"/></svg><b>Devon</b></div>
+      <div class="stop"><svg class="pin"><use href="#pin"/></svg><b>St. Albert</b></div>
+      <div class="stop"><svg class="pin"><use href="#pin"/></svg><b>Edmonton</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="box2">
+      <h2>For a free estimate call or text <a href="tel:7805450089">(780) 545-0089</a></h2>
+      <div class="acts">
+        <a class="btn btn-ink" href="mailto:sparklybrooms@hotmail.com?subject=Request%20for%20Quote">Get quote</a>
+        <a class="btn btn-line" href="tel:7805450089"><svg><use href="#phone"/></svg>Call now</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <img src="images/logo.png" alt="Sparkly Brooms" loading="lazy">
+        <p>A cleaning, organizing and everyday assistance service established to help calm the chaos of everyday life.</p>
+        <div class="soc">
+          <a href="https://www.facebook.com/sparklybrooms" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#fb"/></svg></a>
+          <a href="https://www.instagram.com/sparklybrooms22" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ig"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="https://www.sparklybrooms.com">Home</a></li>
+          <li><a href="https://www.sparklybrooms.com/about">About Us</a></li>
+          <li><a href="https://www.sparklybrooms.com/team-3">Our Team</a></li>
+          <li><a href="https://www.sparklybrooms.com/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="https://www.sparklybrooms.com/cleaning">Cleaning Services</a></li>
+          <li><a href="https://www.sparklybrooms.com/organizing">Organizing</a></li>
+          <li><a href="https://www.sparklybrooms.com/life">Life</a></li>
+          <li><a href="https://www.sparklybrooms.com/services">All services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="tel:7805450089">780-545-0089</a></li>
+          <li><a href="mailto:sparklybrooms@hotmail.com?subject=Request%20for%20Quote">sparklybrooms@hotmail.com</a></li>
+          <li>Spruce Grove, Alberta</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="yr">2026</span> Sparkly Brooms. All rights reserved.</span>
+      <span><a href="https://cleaningdigital.ca/" target="_blank" rel="noopener">Design by Cleaning Digital.</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var header=document.querySelector('header.site');
+  addEventListener('scroll',function(){header.classList.toggle('small',scrollY>40)},{passive:true});
+
+  var drawer=document.getElementById('drawer'),burger=document.getElementById('burger');
+  function setDrawer(o){drawer.classList.toggle('open',o);drawer.setAttribute('aria-hidden',!o);burger.setAttribute('aria-expanded',o)}
+  burger.addEventListener('click',function(){setDrawer(true)});
+  document.getElementById('close').addEventListener('click',function(){setDrawer(false)});
+  drawer.addEventListener('click',function(e){if(e.target===drawer)setDrawer(false)});
+
+  /* services tabs */
+  var tabs=[].slice.call(document.querySelectorAll('.svc-tab'));
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected',x===t);document.getElementById(x.getAttribute('aria-controls')).classList.toggle('on',x===t)});
+  })});
+
+  /* reviews */
+  var people=[].slice.call(document.querySelectorAll('.person')),qs=[].slice.call(document.querySelectorAll('.q')),cur=0,timer;
+  function show(i){cur=i;people.forEach(function(p,j){p.setAttribute('aria-selected',j===i)});qs.forEach(function(q,j){q.classList.toggle('on',j===i)})}
+  function auto(){clearInterval(timer);timer=setInterval(function(){show((cur+1)%qs.length)},7000)}
+  people.forEach(function(p){p.addEventListener('click',function(){show(+p.dataset.i);auto()})});
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)auto();
+
+  /* reveals and checklist ticks */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;
+    if(e.target.id==='checklist'){
+      [].slice.call(e.target.children).forEach(function(li,i){setTimeout(function(){li.classList.add('done')},250+i*320)});
+    } else e.target.classList.add('in');
+    io.unobserve(e.target);
+  })},{threshold:.25});
+  document.querySelectorAll('.reveal,#checklist').forEach(function(el){io.observe(el)});
+
+  /* quote form: composes an email to Sparkly Brooms */
+  var f=document.getElementById('quoteForm'),note=document.getElementById('formNote');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.name.value.trim()||!f.phone.value.trim()){note.textContent='Add your name and phone number so we can get back to you.';(f.name.value.trim()?f.phone:f.name).focus();return}
+    var body='Name: '+f.name.value+'\nPhone: '+f.phone.value+'\nService: '+f.service.value+'\nArea: '+f.area.value;
+    note.textContent='Opening your email app with your request.';
+    location.href='mailto:sparklybrooms@hotmail.com?subject='+encodeURIComponent('Request for Quote')+'&body='+encodeURIComponent(body);
+  });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
